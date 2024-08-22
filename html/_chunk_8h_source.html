@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ByteChunker: Исходный файл Chunk.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ByteChunker
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Chunk.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_chunk_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_chunk.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_chunk.html">Chunk</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">   15</a></span>    std::vector&lt;uint8_t&gt; <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>; </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_chunk.html#a2d884cf8d151bda83f500431d17e3736">   23</a></span>    <span class="keyword">static</span> uint8_t <a class="code hl_function" href="class_chunk.html#a2d884cf8d151bda83f500431d17e3736">charToNibble</a>(<span class="keywordtype">char</span> c) {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">if</span> (c &gt;= <span class="charliteral">&#39;0&#39;</span> &amp;&amp; c &lt;= <span class="charliteral">&#39;9&#39;</span>) <span class="keywordflow">return</span> c - <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">if</span> (c &gt;= <span class="charliteral">&#39;a&#39;</span> &amp;&amp; c &lt;= <span class="charliteral">&#39;f&#39;</span>) <span class="keywordflow">return</span> c - <span class="charliteral">&#39;a&#39;</span> + 10;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">if</span> (c &gt;= <span class="charliteral">&#39;A&#39;</span> &amp;&amp; c &lt;= <span class="charliteral">&#39;F&#39;</span>) <span class="keywordflow">return</span> c - <span class="charliteral">&#39;A&#39;</span> + 10;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Invalid hex character&quot;</span>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_chunk.html#a91dc8aa1b3e0fe6b96732681f9ec4c99">   33</a></span>    <a class="code hl_function" href="class_chunk.html#a91dc8aa1b3e0fe6b96732681f9ec4c99">Chunk</a>(std::vector&lt;uint8_t&gt;&amp; <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>) : <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>(std::move(<a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>)) {}</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_chunk.html#acbd6cc9fadf97ef4f55163d924e607a8">   43</a></span>    <a class="code hl_function" href="class_chunk.html#acbd6cc9fadf97ef4f55163d924e607a8">Chunk</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>, <span class="keywordtype">size_t</span> idSize, std::vector&lt;uint8_t&gt;&amp;&amp; chunkData) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">if</span> (idSize == 0 || idSize &gt; <span class="keyword">sizeof</span>(<span class="keywordtype">size_t</span>)) {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Invalid idSize&quot;</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; idSize; ++i) {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.push_back(<span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>((<span class="keywordtype">id</span> &gt;&gt; (8 * (idSize - i - 1))) &amp; 0xFF));</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.insert(<a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.end(), std::make_move_iterator(chunkData.begin()), std::make_move_iterator(chunkData.end()));</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_chunk.html#a5d77b3635cf7516f1c99500127e5c6fc">   61</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_chunk.html#a5d77b3635cf7516f1c99500127e5c6fc">getId</a>(<span class="keywordtype">size_t</span> idSize)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">if</span> (idSize == 0 || idSize &gt; <span class="keyword">sizeof</span>(<span class="keywordtype">size_t</span>)) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Invalid idSize&quot;</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.size() &lt; idSize) {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Data size is smaller than idSize&quot;</span>);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordtype">size_t</span> <span class="keywordtype">id</span> = 0;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; idSize; ++i) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordtype">id</span> = (<span class="keywordtype">id</span> &lt;&lt; 8) | <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>[i];</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">return</span> id;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_chunk.html#ab606cdfadea5df5be2c00084c79cc623">   80</a></span>    std::string <a class="code hl_function" href="class_chunk.html#ab606cdfadea5df5be2c00084c79cc623">toString</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.empty()) {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Chunk data is empty&quot;</span>);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        std::string str;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        str.reserve(<a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.size() * 2);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">const</span> <span class="keywordtype">char</span> hex_chars[] = <span class="stringliteral">&quot;0123456789abcdef&quot;</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">for</span> (uint8_t <span class="keywordtype">byte</span> : <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>) {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            str.push_back(hex_chars[(<span class="keywordtype">byte</span> &gt;&gt; 4) &amp; 0x0F]);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            str.push_back(hex_chars[<span class="keywordtype">byte</span> &amp; 0x0F]);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> str;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="class_chunk.html#a4feb13b0c21f5003ed009b415b77448d">  102</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="class_chunk.html">Chunk</a> <a class="code hl_function" href="class_chunk.html#a4feb13b0c21f5003ed009b415b77448d">fromString</a>(<span class="keyword">const</span> std::string&amp; str) {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">if</span> (str.size() % 2 != 0) {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Input string length is not valid hex data&quot;</span>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        std::vector&lt;uint8_t&gt; <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.reserve(str.size() / 2);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; str.size(); i += 2) {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            uint8_t highNibble = <a class="code hl_function" href="class_chunk.html#a2d884cf8d151bda83f500431d17e3736">charToNibble</a>(str[i]);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            uint8_t lowNibble = <a class="code hl_function" href="class_chunk.html#a2d884cf8d151bda83f500431d17e3736">charToNibble</a>(str[i + 1]);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.push_back((highNibble &lt;&lt; 4) | lowNibble);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_chunk.html#a91dc8aa1b3e0fe6b96732681f9ec4c99">Chunk</a>(<a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="class_chunk.html#a43bd07a8e9f58bbc7b6182a5c99e1220">  122</a></span>    std::vector&lt;uint8_t&gt;::iterator <a class="code hl_function" href="class_chunk.html#a43bd07a8e9f58bbc7b6182a5c99e1220">begin</a>() {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.begin();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="class_chunk.html#a8d1557b99405a6f2e3d3d14b804eb6a9">  129</a></span>    std::vector&lt;uint8_t&gt;::iterator <a class="code hl_function" href="class_chunk.html#a8d1557b99405a6f2e3d3d14b804eb6a9">end</a>() {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.end();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="class_chunk.html#ae806661a12ea09fb7f3991ebd1382900">  136</a></span>    std::vector&lt;uint8_t&gt;::const_iterator <a class="code hl_function" href="class_chunk.html#ae806661a12ea09fb7f3991ebd1382900">begin</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.begin();</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="class_chunk.html#a86faf5398174790aa117ea7598b9440f">  143</a></span>    std::vector&lt;uint8_t&gt;::const_iterator <a class="code hl_function" href="class_chunk.html#a86faf5398174790aa117ea7598b9440f">end</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">data</a>.end();</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>};</div>
+<div class="ttc" id="aclass_chunk_html"><div class="ttname"><a href="class_chunk.html">Chunk</a></div><div class="ttdoc">Класс для представления порции (чанка) данных с идентификатором.</div><div class="ttdef"><b>Definition</b> Chunk.h:10</div></div>
+<div class="ttc" id="aclass_chunk_html_a2d884cf8d151bda83f500431d17e3736"><div class="ttname"><a href="class_chunk.html#a2d884cf8d151bda83f500431d17e3736">Chunk::charToNibble</a></div><div class="ttdeci">static uint8_t charToNibble(char c)</div><div class="ttdoc">Преобразует символ в шестнадцатеричный &quot;ниббл&quot; (4 бита).</div><div class="ttdef"><b>Definition</b> Chunk.h:23</div></div>
+<div class="ttc" id="aclass_chunk_html_a43bd07a8e9f58bbc7b6182a5c99e1220"><div class="ttname"><a href="class_chunk.html#a43bd07a8e9f58bbc7b6182a5c99e1220">Chunk::begin</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt;::iterator begin()</div><div class="ttdoc">Возвращает итератор на начало данных порции.</div><div class="ttdef"><b>Definition</b> Chunk.h:122</div></div>
+<div class="ttc" id="aclass_chunk_html_a4feb13b0c21f5003ed009b415b77448d"><div class="ttname"><a href="class_chunk.html#a4feb13b0c21f5003ed009b415b77448d">Chunk::fromString</a></div><div class="ttdeci">static Chunk fromString(const std::string &amp;str)</div><div class="ttdoc">Создает порцию данных из строки шестнадцатеричных символов.</div><div class="ttdef"><b>Definition</b> Chunk.h:102</div></div>
+<div class="ttc" id="aclass_chunk_html_a5d77b3635cf7516f1c99500127e5c6fc"><div class="ttname"><a href="class_chunk.html#a5d77b3635cf7516f1c99500127e5c6fc">Chunk::getId</a></div><div class="ttdeci">size_t getId(size_t idSize) const</div><div class="ttdoc">Возвращает идентификатор порции.</div><div class="ttdef"><b>Definition</b> Chunk.h:61</div></div>
+<div class="ttc" id="aclass_chunk_html_a607899e515986efdcbf5f846260aa1d9"><div class="ttname"><a href="class_chunk.html#a607899e515986efdcbf5f846260aa1d9">Chunk::data</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt; data</div><div class="ttdoc">Вектор, хранящий данные порции в том числе id.</div><div class="ttdef"><b>Definition</b> Chunk.h:15</div></div>
+<div class="ttc" id="aclass_chunk_html_a86faf5398174790aa117ea7598b9440f"><div class="ttname"><a href="class_chunk.html#a86faf5398174790aa117ea7598b9440f">Chunk::end</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt;::const_iterator end() const</div><div class="ttdoc">Возвращает константный итератор на конец данных порции.</div><div class="ttdef"><b>Definition</b> Chunk.h:143</div></div>
+<div class="ttc" id="aclass_chunk_html_a8d1557b99405a6f2e3d3d14b804eb6a9"><div class="ttname"><a href="class_chunk.html#a8d1557b99405a6f2e3d3d14b804eb6a9">Chunk::end</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt;::iterator end()</div><div class="ttdoc">Возвращает итератор на конец данных порции.</div><div class="ttdef"><b>Definition</b> Chunk.h:129</div></div>
+<div class="ttc" id="aclass_chunk_html_a91dc8aa1b3e0fe6b96732681f9ec4c99"><div class="ttname"><a href="class_chunk.html#a91dc8aa1b3e0fe6b96732681f9ec4c99">Chunk::Chunk</a></div><div class="ttdeci">Chunk(std::vector&lt; uint8_t &gt; &amp;data)</div><div class="ttdoc">Конструктор для создания порции данных из существующего вектора байт.</div><div class="ttdef"><b>Definition</b> Chunk.h:33</div></div>
+<div class="ttc" id="aclass_chunk_html_ab606cdfadea5df5be2c00084c79cc623"><div class="ttname"><a href="class_chunk.html#ab606cdfadea5df5be2c00084c79cc623">Chunk::toString</a></div><div class="ttdeci">std::string toString() const</div><div class="ttdoc">Преобразует порцию данных в строку шестнадцатеричных символов.</div><div class="ttdef"><b>Definition</b> Chunk.h:80</div></div>
+<div class="ttc" id="aclass_chunk_html_acbd6cc9fadf97ef4f55163d924e607a8"><div class="ttname"><a href="class_chunk.html#acbd6cc9fadf97ef4f55163d924e607a8">Chunk::Chunk</a></div><div class="ttdeci">Chunk(size_t id, size_t idSize, std::vector&lt; uint8_t &gt; &amp;&amp;chunkData)</div><div class="ttdoc">Конструктор для создания порции данных с идентификатором.</div><div class="ttdef"><b>Definition</b> Chunk.h:43</div></div>
+<div class="ttc" id="aclass_chunk_html_ae806661a12ea09fb7f3991ebd1382900"><div class="ttname"><a href="class_chunk.html#ae806661a12ea09fb7f3991ebd1382900">Chunk::begin</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt;::const_iterator begin() const</div><div class="ttdoc">Возвращает константный итератор на начало данных порции.</div><div class="ttdef"><b>Definition</b> Chunk.h:136</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>
